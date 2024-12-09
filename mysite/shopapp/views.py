@@ -2,6 +2,10 @@ from timeit import default_timer
 from django.contrib.auth.models import Group
 from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render
+from .forms import ProductForm
+from .forms import ProductForm
 from .models import Product, Order
 
 def shop_index(request: HttpRequest):
@@ -27,6 +31,17 @@ def products_list(request: HttpRequest):
         "products": Product.objects.all(),  # Исправлена опечатка "prodducts"
     }
     return render(request, 'shopapp/products-list.html', context=context)
+
+ # Ensure this import is correct and the form exists
+
+def create_product(request: HttpRequest) -> HttpResponse:
+    form = ProductForm()  # Initialize the form
+    context = {
+        "form": form,
+    }
+    return render(request, "shopapp/create-product.html", context=context)
+
+
 
 def orders_list(request: HttpRequest):
     context = {
