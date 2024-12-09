@@ -14,4 +14,4 @@ def validate_file_name(file: InMemoryUploadedFile) -> None:
        raise ValidationError("file should not contain 'virus'")
 
 class UploadFileForm(forms.Form):
-    file = forms.FileField(validators=[validate_file_name])  # Добавлена валидация
+    file = forms.FileField(validators=[validate_file_name])
