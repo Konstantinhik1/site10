@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'shopapp.apps.ShopappConfig'
+    'shopapp.apps.ShopappConfig',
+    'requestdataapp.apps.RequestdataappConfig'
 ]
 
 MIDDLEWARE = [
@@ -56,18 +57,25 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # Добавлен путь к директории с шаблонами
         'APP_DIRS': True,
         'OPTIONS': {
+
             'context_processors': [
+
                 'django.template.context_processors.debug',
+
                 'django.template.context_processors.request',
+
                 'django.contrib.auth.context_processors.auth',
+
                 'django.contrib.messages.context_processors.messages',
             ],
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
