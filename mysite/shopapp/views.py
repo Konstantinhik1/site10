@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import View
+from django.views.generic import TemplateView
 
 from .forms import ProductForm , GroupForm
 from .models import Product, Order
@@ -52,11 +53,16 @@ class ProductDetailsView(View):
         }
         return render(request, 'shopapp/products-details.html', context=context)
 
-def products_list(request: HttpRequest):
-    context = {
-        "products": Product.objects.all(),  # Исправлена опечатка "prodducts"
-    }
-    return render(request, 'shopapp/products-list.html', context=context)
+class ProductsListView(TemplateView):
+    template_name = "shopapp/products-list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["products"] =Product.objects.all()
+        return context
+
+
+
 
 
 
