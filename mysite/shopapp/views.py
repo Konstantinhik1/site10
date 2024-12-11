@@ -3,13 +3,14 @@ from timeit import default_timer
 
 from django.contrib.admindocs.views import ViewIndexView
 from django.contrib.auth.models import Group
-from django.http import HttpResponse, HttpRequest
+from django.contrib.messages import success
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from .forms import ProductForm , GroupForm
 from .models import Product, Order
@@ -57,6 +58,7 @@ class ProductsListView(ListView):
     template_name = "shopapp/products-list.html"
     model = Product
     context_object_name = "products"
+    # queryset = Product.objects.filter(archived=False)
 
 class ProductCreateView(CreateView):
     model = Product
@@ -73,6 +75,16 @@ class  ProductUpdateView(UpdateView):
             "shopapp:product_details",
             kwargs={"pk": self.object.pk},
         )
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy("shopapp:products_list")
+
+    # def form_valid(self, form):
+    #     success_url =self.get_success_url()
+    #     # self.object.archived = True
+    #     self.object.save()
+    #     return HttpResponseRedirect(success_url)
 
 
 
