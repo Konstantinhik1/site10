@@ -1,6 +1,6 @@
 from http.client import HTTPResponse
-
 from django.contrib.admindocs.views import TemplateView
+from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LogoutView
 from django.contrib.sessions.models import Session
@@ -67,8 +67,9 @@ def logout_view(request:HttpRequest):
 class MyLogoutView(LogoutView):
     next_page = reverse_lazy("myauth:login")
 
-
+@user_passes_test(lambda u: u.is_superuser)
 def set_cookie_view(request: HttpRequest) -> HttpResponse:
+
     response = HttpResponse("Cookie set")
     response.set_cookie("fizz", "buzz", max_age=3600)  # Кука "fizz" установлена на 1 час
     return response
@@ -79,10 +80,12 @@ def get_cookie_view(request: HttpRequest) -> HttpResponse:
 
 from django.http import HttpRequest, HttpResponse
 
+@permission_required("myauth.view_profile", raise_exception=True)
 def set_session_view(request: HttpRequest) -> HttpResponse:
     request.session["foobar"] = "spameeggs"  # Устанавливаем значение сессии
     return HttpResponse("Session set!")
 
+@login_required
 def get_session_view(request: HttpRequest) -> HttpResponse:
     value = request.session.get("foobar", "default")  # Получаем значение из сессии
     return HttpResponse(f"Session value: {value!r}")
