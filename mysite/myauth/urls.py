@@ -4,8 +4,16 @@ from django.shortcuts import redirect
 from django.urls import path
 
 
-from .views import (get_cookie_view, set_cookie_view, set_session_view, get_session_view, logout_view,MyLogoutView,
-                    )
+from .views import (
+    get_cookie_view,
+    set_cookie_view,
+    set_session_view,
+    get_session_view,
+    logout_view,
+    MyLogoutView,
+    AboutMeView,
+    RegisterView,
+)
 
 app_name = "myauth"
 
@@ -15,6 +23,8 @@ app_name = "myauth"
 
 urlpatterns = [
     # path("", login_view, name="login"),  # Главная страница приложения
+    path("register/", RegisterView.as_view(), name="register"),
+    path("about-me/", AboutMeView.as_view(), name="about-me"),
     path("logout/", logout_view, name="logout"),
     path("logout/", MyLogoutView.as_view, name="logout"),
     path("login/", LoginView.as_view(template_name="myauth/login.html",redirect_authenticated_user=True,), name="login"),
