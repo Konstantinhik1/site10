@@ -25,14 +25,19 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" object-ref="schemas/main/tables/django_session" />
-      <object connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" object-ref="schemas/main/tables/myauth_profile" />
+      <object connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" object-ref="schemas/main/tables/auth_permission" />
+      <object connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" object-ref="schemas/main/tables/auth_group_permissions" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="3c572ca2-dc41-49f7-9977-733ce256fb80" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" dataset="main.auth_group_permissions" active-filter-id="">
+      <filter id="5161ffb7-62bb-419f-9c98-efb555d20e5c" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
     <filter-actions connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" dataset="main.myauth_profile" active-filter-id="">
       <filter id="37eed543-094f-4c28-9dc2-0c49cfb5ea43" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="id" operator="=" value="" active="true" />
@@ -42,6 +47,11 @@
     <filter-actions connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" dataset="main.django_session" active-filter-id="">
       <filter id="2ae64ffa-b7c5-4c16-ac5a-407ad46b0bd6" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="session_key" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" dataset="main.auth_permission" active-filter-id="">
+      <filter id="75516f4d-f8a7-45f3-8131-7f6574848fc9" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
   </component>
