@@ -24,14 +24,24 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" object-ref="schemas/main/tables/shopapp_order" />
+      <object connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" object-ref="schemas/main/tables/shopapp_product" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="3c572ca2-dc41-49f7-9977-733ce256fb80" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" dataset="main.shopapp_order_products" active-filter-id="" />
+    <filter-actions connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" dataset="main.sqlite_sequence" active-filter-id="" />
     <filter-actions connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" dataset="main.auth_group_permissions" active-filter-id="">
       <filter id="5161ffb7-62bb-419f-9c98-efb555d20e5c" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" dataset="main.shopapp_product" active-filter-id="EMPTY_FILTER">
+      <filter id="70f4de6d-e867-44b1-9f1e-9bde2c50258a" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
@@ -40,7 +50,11 @@
         <condition column="id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
-    <filter-actions connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" dataset="main.shopapp_order" active-filter-id="" />
+    <filter-actions connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" dataset="main.shopapp_order" active-filter-id="">
+      <filter id="2c5ee1a8-a4b4-41d8-bdd8-3c2cdcfcdd4d" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
     <filter-actions connection-id="3c572ca2-dc41-49f7-9977-733ce256fb80" dataset="main.django_session" active-filter-id="">
       <filter id="2ae64ffa-b7c5-4c16-ac5a-407ad46b0bd6" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="session_key" operator="=" value="" active="true" />
