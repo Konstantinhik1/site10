@@ -4,7 +4,7 @@ from timeit import default_timer
 from django.contrib.admindocs.views import ViewIndexView
 from django.contrib.auth.models import Group
 from django.contrib.messages import success
-from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404, reverse
@@ -110,7 +110,28 @@ class OrderDetailView(PermissionRequiredMixin, DetailView):
 
 
 
- # Ensure this import is correct and the form exists
+
+
+class ProductsDataExportView(View):
+    def get(self, request):
+        # Получаем все продукты, сортируя их по первичному ключу
+        products = Product.objects.order_by("pk").all()
+
+        # Создаем список данных о каждом продукте
+        products_data = [
+            {
+                "pk": product.pk,  # ID продукта
+                "name": product.name,  # Название продукта
+                "price": float(product.price),  # Преобразуем цену в тип float
+            }
+            for product in products
+        ]
+
+        # Возвращаем данные в формате JSON
+        return JsonResponse({"products": products_data})
+
+
+# Ensure this import is correct and the form exists
 
 def create_product(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":

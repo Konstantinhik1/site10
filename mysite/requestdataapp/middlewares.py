@@ -5,17 +5,18 @@ from django.http import HttpResponse, HttpRequest
 
 
 def set_useragent_on_request_middleware(get_response):
-
     print("initial call")
 
     def middleware(request: HttpResponse):
         print("before get_response")
-        request.user_agent = request.META["HTTP_USER_AGENT"]
+        # Безопасное извлечение HTTP_USER_AGENT
+        request.user_agent = request.META.get("HTTP_USER_AGENT", "Unknown")
         response = get_response(request)
         print("after get response")
         return response
 
     return middleware
+
 
 class CountRequestsMiddleware:
     def __init__(self,get_response):
