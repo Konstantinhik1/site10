@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-18 10:13+0000\n"
+"POT-Creation-Date: 2024-12-18 13:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,6 @@ msgstr[0] "{count} товар"
 msgstr[1] "{count} товара"
 msgstr[2] "{count} товаров"
 
-
 #: mysite/settings.py:142
 msgid "English"
 msgstr ""
@@ -40,3 +39,7 @@ msgstr ""
 #: mysite/settings.py:143
 msgid "Russian"
 msgstr "Русский"
+
+#: shopapp/templates/shopapp/products-list.html:6
+msgid "Products list"
+msgstr "Список товаров"
