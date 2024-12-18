@@ -14,6 +14,7 @@ from .views import (
     AboutMeView,
     RegisterView,
     FooBarView,
+    HelloView,
 )
 
 app_name = "myauth"
@@ -23,7 +24,9 @@ app_name = "myauth"
 
 
 urlpatterns = [
+    path("hello/", HelloView.as_view(), name="hello"),
     # path("", login_view, name="login"),  # Главная страница приложения
+
     path("register/", RegisterView.as_view(), name="register"),
     path("about-me/", AboutMeView.as_view(), name="about-me"),
     path("logout/", logout_view, name="logout"),

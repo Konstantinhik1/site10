@@ -13,6 +13,11 @@ from django.views.generic import CreateView
 from.models import Profile
 
 
+class HelloView(View):
+    def get (self, request: HttpRequest) -> HttpResponse:
+        return HttpResponse("<h1>Hello world!</h1>")
+
+
 class AboutMeView(TemplateView):
     template_name = "myauth/about-me.html"
 
