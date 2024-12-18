@@ -11,11 +11,13 @@ from django.urls import reverse, reverse_lazy
 from django.views import View
 from django.views.generic import CreateView
 from.models import Profile
+from django.utils.translation import gettext as _
 
 
 class HelloView(View):
     def get (self, request: HttpRequest) -> HttpResponse:
-        return HttpResponse("<h1>Hello world!</h1>")
+        welcome_message = _("Hello world!")
+        return HttpResponse(f"<h1>{welcome_message}</h1>")
 
 
 class AboutMeView(TemplateView):
