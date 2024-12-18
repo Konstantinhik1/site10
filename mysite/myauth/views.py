@@ -16,7 +16,7 @@ from django.utils.translation import gettext as _
 
 class HelloView(View):
     def get (self, request: HttpRequest) -> HttpResponse:
-        welcome_message = _("Hello world!")
+        welcome_message = _("welcome hello world!")
         return HttpResponse(f"<h1>{welcome_message}</h1>")
 
 
