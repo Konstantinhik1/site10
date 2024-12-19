@@ -29,7 +29,10 @@ from timeit import default_timer
 from .serializers import ProductSerializer
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
+from drf_spectacular.utils import extend_schema, OpenApiResponse
 
+
+@extend_schema(description="Product views CRUD")
 class ProductViewSet(ModelViewSet):
     """
     набор представлений для действий для Product
@@ -54,6 +57,17 @@ class ProductViewSet(ModelViewSet):
         "price",
         "discount",
     ]
+
+    @extend_schema(
+        summary="Get one product by ID",
+        description="Retrieves **product**, returns 404 if not found",
+        responses={
+            200: ProductSerializer,
+            404: OpenApiResponse(description="Empty response, product by id not found"),
+        }
+    )
+    def retrieve(self,  *args, **kwargs):
+        return super().retrieve(*args,**kwargs)
 
 class ShopIndexView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
