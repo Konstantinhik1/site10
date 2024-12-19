@@ -20,15 +20,26 @@ from django.shortcuts import render
 from django.views import View
 from timeit import default_timer
 from .serializers import ProductSerializer
-
-
+from rest_framework.filters import SearchFilter, OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
 
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    filter_backends = [
+        SearchFilter,
+        DjangoFilterBackend,
+        OrderingFilter,
+    ]
+    search_fields = ["name", "description"]
     filterset_fields =[
         "name",
         "description",
+        "price",
+        "discount",
+    ]
+    ordering_fields = [
+        "name",
         "price",
         "discount",
     ]
