@@ -1,3 +1,10 @@
+"""
+В этом модуле лежат различные наборы представлений.
+
+Разные view интернет-магазина: по товарам, заказам и т.д.
+"""
+
+
 from timeit import default_timer
 
 
@@ -24,6 +31,10 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
 class ProductViewSet(ModelViewSet):
+    """
+    набор представлений для действий для Product
+    Полный CRUD сущностей товара
+    """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [
