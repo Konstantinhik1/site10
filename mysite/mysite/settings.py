@@ -17,7 +17,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 from django.conf.global_settings import LOGIN_REDIRECT_URL, LOGIN_URL, MEDIA_URL, LOCALE_PATHS, LANGUAGES
-
+from drf_spectacular.settings import SPECTACULAR_DEFAULTS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'django_filters',
+    'drf_spectacular',
 
     'shopapp.apps.ShopappConfig',
     'requestdataapp.apps.RequestdataappConfig',
@@ -174,6 +175,14 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 10,
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS':'drf_spectacular.openapi.AutoSchema',
 
+}
+
+SPECTACULAR_SETTINGS={
+    'TITLE':'My Site Project Api',
+    'DESCRIPTION': 'My site with shop app and custom auth',
+    'VERSION':'1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
