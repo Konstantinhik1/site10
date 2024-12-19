@@ -14,11 +14,18 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 from django.contrib.auth.mixins import  LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from .forms import ProductForm , GroupForm
 from .models import Product, Order
-
+from rest_framework.viewsets import ModelViewSet
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views import View
 from timeit import default_timer
+from .serializers import ProductSerializer
+
+
+
+class ProductViewSet(ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
 class ShopIndexView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
