@@ -171,28 +171,27 @@ LOGIN_REDIRECT_URL = reverse_lazy("myauth:about-me" )
 
 LOGIN_URL = reverse_lazy("myauth:login")
 
-LOGGING={
-    'version': 1,
-    'filters': {
-        'require_debug_true':{
-            '()': 'django.utils.log.RequireDebugTrue',
-
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "%(asctime)s [%(levelname)s] %(message)s",
         },
     },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
+    "handlers": {  # Исправлено: handler -> handlers
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
         },
     },
-    'loggers': {
-        'django.db.backends':{
-            'level': 'DEBUG',
-            'handlers': ['console'],
-        }
+    "root": {
+        "handlers": ["console"],
+        "level": "INFO",
     },
 }
+
+
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
