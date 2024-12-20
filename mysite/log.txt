@@ -1,0 +1,4 @@
+2024-12-20 18:28:49,836 [INFO] /home/k/PycharmProjects/site14/mysite/mysite/settings.py changed, reloading.
+2024-12-20 18:28:50,134 [INFO] Watching for file changes with StatReloader
+2024-12-20 18:30:50,672 [INFO] /home/k/PycharmProjects/site14/mysite/mysite/settings.py changed, reloading.
+2024-12-20 18:30:50,948 [INFO] Watching for file changes with StatReloader

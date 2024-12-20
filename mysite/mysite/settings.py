@@ -171,6 +171,11 @@ LOGIN_REDIRECT_URL = reverse_lazy("myauth:about-me" )
 
 LOGIN_URL = reverse_lazy("myauth:login")
 
+LOGFILE_NAME = BASE_DIR / "log.txt"
+#LOGFILE_SIZE = 400
+LOGFILE_SIZE = 1 * 1024 * 1024
+LOGFILE_COUNT = 3
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -179,17 +184,28 @@ LOGGING = {
             "format": "%(asctime)s [%(levelname)s] %(message)s",
         },
     },
-    "handlers": {  # Исправлено: handler -> handlers
+    "handlers": {
         "console": {
             "class": "logging.StreamHandler",
             "formatter": "verbose",
         },
+        "logfile": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": LOGFILE_NAME,  # Используем LOGIN_NAME вместо LOGFILE_NAME
+            "maxBytes": LOGFILE_SIZE,  # Используем LOGIN_SIZE вместо LOGFILE_SIZE
+            "backupCount": LOGFILE_COUNT,
+            "formatter": "verbose",
+        },
     },
     "root": {
-        "handlers": ["console"],
+        "handlers": [
+            "console",
+            "logfile",
+        ],
         "level": "INFO",
     },
 }
+
 
 
 
