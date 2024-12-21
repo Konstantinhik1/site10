@@ -17,7 +17,8 @@ from django.urls import reverse_lazy
 
 from django.utils.translation import gettext_lazy as _
 
-from django.conf.global_settings import LOGIN_REDIRECT_URL, LOGIN_URL, MEDIA_URL, LOCALE_PATHS, LANGUAGES, LOGGING
+from django.conf.global_settings import LOGIN_REDIRECT_URL, LOGIN_URL, MEDIA_URL, LOCALE_PATHS, LANGUAGES, LOGGING, \
+    INTERNAL_IPS
 from drf_spectacular.settings import SPECTACULAR_DEFAULTS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,7 +35,9 @@ SECRET_KEY = 'django-insecure-w1si&94am)7d7-v(-g%vuvheohdswv4f1rwya&+ie*_v5)fcwf
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Application definition
 
@@ -47,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
 
+    'debug_toolbar',
     'rest_framework',
     'django_filters',
     'drf_spectacular',
@@ -67,6 +71,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.admindocs.middleware.XViewMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 
     'requestdataapp.middlewares.set_useragent_on_request_middleware',
     'requestdataapp.middlewares.CountRequestsMiddleware',
@@ -98,6 +103,7 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
+
 
 
 # Database

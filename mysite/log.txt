@@ -2,3 +2,15 @@
 2024-12-20 18:28:50,134 [INFO] Watching for file changes with StatReloader
 2024-12-20 18:30:50,672 [INFO] /home/k/PycharmProjects/site14/mysite/mysite/settings.py changed, reloading.
 2024-12-20 18:30:50,948 [INFO] Watching for file changes with StatReloader
+2024-12-21 11:35:27,093 [INFO] Watching for file changes with StatReloader
+2024-12-21 11:35:38,110 [WARNING] Not Found: /
+2024-12-21 11:35:38,809 [WARNING] Not Found: /favicon.ico
+2024-12-21 11:48:28,836 [INFO] /home/k/PycharmProjects/site14/mysite/mysite/urls.py changed, reloading.
+2024-12-21 11:48:29,128 [INFO] Watching for file changes with StatReloader
+2024-12-21 11:52:09,919 [INFO] /home/k/PycharmProjects/site14/mysite/mysite/urls.py changed, reloading.
+2024-12-21 11:52:10,241 [INFO] Watching for file changes with StatReloader
+2024-12-21 11:56:29,425 [INFO] /home/k/PycharmProjects/site14/mysite/mysite/settings.py changed, reloading.
+2024-12-21 11:56:29,740 [INFO] Watching for file changes with StatReloader
+2024-12-21 12:09:15,946 [INFO] /home/k/PycharmProjects/site14/mysite/mysite/settings.py changed, reloading.
+2024-12-21 12:09:16,314 [INFO] Watching for file changes with StatReloader
+2024-12-21 12:11:09,935 [WARNING] Not Found: /
