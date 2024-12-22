@@ -7,6 +7,6 @@ djangorestframework==3.15.2
 listview==0.1.0
 pillow==11.0.0
 self==2020.12.3
-pip install pytz==2024.2
+pytz==2024.2
 sqlparse==0.5.3
 views==0.3
