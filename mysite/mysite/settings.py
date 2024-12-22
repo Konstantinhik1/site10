@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+from django.utils.translation import gettext as _
 from django.core.mail.backends import console
 from django.urls import reverse_lazy
 
@@ -35,12 +35,25 @@ SECRET_KEY = 'django-insecure-w1si&94am)7d7-v(-g%vuvheohdswv4f1rwya&+ie*_v5)fcwf
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "0.0.0.0",
-    "127.0.0.1",
+    "0.0.0.0",  # разрешаем все IP-адреса (для разработки)
+    "127.0.0.1",  # разрешаем локальный хост
 ]
+
 INTERNAL_IPS = [
-    "127.0.0.1",
+    "127.0.0.1",  # добавляем локальный адрес
 ]
+
+if DEBUG:
+    import socket
+    try:
+        hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+        INTERNAL_IPS.append("10.0.2.2")  # добавляем IP-адрес для виртуализированных сред
+        INTERNAL_IPS.extend(
+            [ip[:ip.rfind(".")] + ".1" for ip in ips]  # генерируем локальные адреса для шлюзов
+        )
+    except Exception as e:
+        print(f"Error while getting internal IPs: {e}")
+
 
 # Application definition
 
@@ -156,10 +169,22 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale/'
 ]
 
-LANGUAGES = [
-    ('en',_('English')),
-    ('ru',_('Russian')),
-]
+from django.utils.translation import gettext as _
+
+
+def get_installed_languages():
+    return [
+        ('en', 'English'),  # Убедитесь, что это без перевода
+        ('ru', 'Russian'),  # Убедитесь, что это без перевода
+        # Другие языки...
+    ]
+
+LANGUAGES = get_installed_languages()
+
+# Переводите здесь, где это действительно нужно, например, в функций или в шаблонах.
+
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
