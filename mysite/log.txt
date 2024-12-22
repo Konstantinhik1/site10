@@ -17,3 +17,5 @@
 2024-12-22 10:54:15,968 [INFO] Watching for file changes with StatReloader
 2024-12-22 10:54:20,230 [WARNING] Not Found: /
 2024-12-22 10:54:20,612 [WARNING] Not Found: /favicon.ico
+2024-12-22 11:26:18,581 [WARNING] Not Found: /
+2024-12-22 11:26:51,628 [WARNING] Not Found: /
