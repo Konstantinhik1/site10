@@ -14,3 +14,6 @@
 2024-12-21 12:09:15,946 [INFO] /home/k/PycharmProjects/site14/mysite/mysite/settings.py changed, reloading.
 2024-12-21 12:09:16,314 [INFO] Watching for file changes with StatReloader
 2024-12-21 12:11:09,935 [WARNING] Not Found: /
+2024-12-22 10:54:15,968 [INFO] Watching for file changes with StatReloader
+2024-12-22 10:54:20,230 [WARNING] Not Found: /
+2024-12-22 10:54:20,612 [WARNING] Not Found: /favicon.ico

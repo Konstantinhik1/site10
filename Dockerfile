@@ -6,4 +6,6 @@ COPY requirments.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
+RUN apt-get update && apt-get install -y bash
+
 COPY mysite .
